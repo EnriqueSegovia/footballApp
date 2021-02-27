@@ -9,8 +9,9 @@ import { ILeagues } from '@app/model/ILeague.interface'
   styleUrls: ['./leagues.page.scss'],
 })
 export class LeaguesPage implements OnInit {
-  results: Observable<ILeagues>
-  query: string
+  results: Observable<ILeagues[]>;
+  term: string = ''
+  league: string = ''
 
   constructor(private leagueService: LeagueService) { }
 
@@ -18,7 +19,7 @@ export class LeaguesPage implements OnInit {
   }
 
   searchChanged(): void  {
-    this.results = this.leagueService.searchLeague(this.query)
+    this.results = this.leagueService.searchLeague(this.term)
   }
 
 }
