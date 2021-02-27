@@ -8,9 +8,9 @@
   <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged()">
   </ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let league of (results | async)"></ion-item>
+    <ion-item *ngFor="let league of leagues"></ion-item>
     <ion-avatar slot="start">
-      <img src="{{league.leagueLogo}}" alt="{{}}">
+      <img src="{{league.leagueLogo}}" alt="">
     </ion-avatar>
   </ion-list>
 </ion-content>

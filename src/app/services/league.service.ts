@@ -16,7 +16,11 @@ export class LeagueService {
   searchLeague(title:string) {
     this.url = `${environment.baseApiUrl}leagues?q=${encodeURI(title)}`
     console.log(this.url);
-    return this.http.get<ILeagues[]>(this.url)
+    return this.http.get<ILeagues>(this.url)
+  }
+
+  getAllLeagues() {
+    return this.http.get<ILeagues>(`${environment.baseApiUrl}leagues`)
   }
 
   getLeagueDetails(id:string) {

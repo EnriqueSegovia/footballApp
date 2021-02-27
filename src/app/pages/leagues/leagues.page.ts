@@ -9,17 +9,22 @@ import { ILeagues } from '@app/model/ILeague.interface'
   styleUrls: ['./leagues.page.scss'],
 })
 export class LeaguesPage implements OnInit {
-  results: Observable<ILeagues[]>;
+  leagues: Observable<ILeagues>
   term: string = ''
-  league: string = ''
 
   constructor(private leagueService: LeagueService) { }
 
   ngOnInit() {
+    this.leagueService.getAllLeagues()
+    .subscribe(
+      (data) => this.leagues = data)
+    )
   }
 
-  searchChanged(): void  {
-    this.results = this.leagueService.searchLeague(this.term)
-  }
+  // searchChanged(): void  {
+  //   this.leagueService.searchLeague(this.term).subscribe(
+  //     (data) => this.leagues = data
+  //   )
+  // }
 
 }
