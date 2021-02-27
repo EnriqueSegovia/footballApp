@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs'
+import { LeagueService } from '@app/services/league.service'
+import { ILeagues } from '@app/model/ILeague.interface'
 
 @Component({
   selector: 'app-leagues',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leagues.page.scss'],
 })
 export class LeaguesPage implements OnInit {
+  results: Observable<ILeagues>
+  query: string
 
-  constructor() { }
+  constructor(private leagueService: LeagueService) { }
 
   ngOnInit() {
+  }
+
+  searchChanged(): void  {
+    this.results = this.leagueService.searchLeague(this.query)
   }
 
 }
