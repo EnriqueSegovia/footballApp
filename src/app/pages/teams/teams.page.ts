@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamService } from '@app/services/team.service'
 
 @Component({
   selector: 'app-teams',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teams.page.scss'],
 })
 export class TeamsPage implements OnInit {
+  teams
 
-  constructor() { }
+  constructor(
+    private teamService: TeamService
+  ) { }
 
   ngOnInit() {
+    this.getList()
+  }
+
+  getList() {
+    this.teamService.getAllTeams().subscribe(
+      response => {
+        this.teams = response
+        console.log(this.teams);
+      }
+    )
   }
 
 }

@@ -9,21 +9,11 @@
 <ion-content fullscreen *ngIf="data">
   <ion-card>
     <ion-card-header>
-      <img src="{{data.leagueLogo}}" />
-      <ion-card-title>{{data.leagueName}}</ion-card-title>
+      <img src="{{data.teamLogo}}" />
+      <ion-card-title>{{data.teamName}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <h2>Teams in League:</h2>
-      <ion-grid>
-        <ion-row>
-          <ion-col offset-4>
-            <div>Team 1</div>
-          </ion-col>
-          <ion-col>
-            <div> Team 2</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <h2>Players in Team:</h2>
     </ion-card-content>
   </ion-card>
 

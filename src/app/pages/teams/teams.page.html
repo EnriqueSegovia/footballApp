@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>teams</ion-title>
+    <ion-title>Teams</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list *ngFor="let team of teams" [routerLink]="['/', 'team', team.id]">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{team.teamLogo}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{team.teamName}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

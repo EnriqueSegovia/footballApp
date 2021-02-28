@@ -21,7 +21,6 @@ export class LeagueDetailsPage implements OnInit {
       this.id = this.activatedRoute.snapshot.paramMap.get('id')
       this.leagueService.getLeagueDetails(this.id).subscribe( result => {
         this.data = result[0]
-        console.log(this.data);
       }
       )
     }
