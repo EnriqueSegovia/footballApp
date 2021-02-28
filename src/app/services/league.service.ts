@@ -9,17 +9,15 @@ import { environment } from '@environment/environment'
   providedIn: 'root'
 })
 export class LeagueService {
-  private url: string = ''
-  private resp: string = ''
-  public resu
+  url
+  resp
+  resu
 
 
   constructor(private http: HttpClient) { }
 
-  public searchLeague(title:string): Observable<any> {
+  searchLeague(title:string): Observable<any> {
     this.url = `${environment.baseApiUrl}leagues?q=${encodeURI(title)}`
-    // console.log(this.url);
-    console.log(this.resp);
     return this.http.get<any>(this.url).pipe(map(res => this.resp = res))
   }
 
@@ -27,7 +25,7 @@ export class LeagueService {
     return this.http.get<any>(`${environment.baseApiUrl}leagues`)
   }
 
-  getLeagueDetails(id:string) {
+  getLeagueDetails(id) {
      return this.http.get<any>(`${environment.baseApiUrl}leagues?leagueId=${id}`)
   }
 }

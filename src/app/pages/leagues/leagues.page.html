@@ -7,7 +7,7 @@
 <ion-content>
   <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged()">
   </ion-searchbar>
-  <ion-list *ngFor="let league of leagues">
+  <ion-list *ngFor="let league of leagues" [routerLink]="['/', 'league', league.leagueId]">
     <ion-item>
       <ion-avatar slot="start">
         <img src="{{league.leagueLogo}}">

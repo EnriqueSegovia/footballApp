@@ -24,7 +24,6 @@ export class LeaguesPage implements OnInit {
     this.leagueService.getAllLeagues().subscribe(
       response => this.leagues = response
       )
-    console.log(this.leagues)
   }
 
   searchChanged(): void  {
