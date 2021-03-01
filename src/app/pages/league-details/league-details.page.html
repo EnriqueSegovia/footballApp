@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button color="dark" defaultHref="/"></ion-back-button>
     </ion-buttons>
+    <ion-title>League Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,17 +14,15 @@
       <ion-card-title>{{data.leagueName}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <h2>Teams in League:</h2>
-      <ion-grid>
-        <ion-row>
-          <ion-col offset-4>
-            <div>Team 1</div>
-          </ion-col>
-          <ion-col>
-            <div> Team 2</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <h2>Team in League:</h2>
+      <ion-item *ngFor="let team of teams" [routerLink]="['/', 'team', team.id]">
+        <ion-avatar slot="start">
+          <img src="{{team.teamLogo}}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{team.teamName}}</h2>
+        </ion-label>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 

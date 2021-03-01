@@ -20,8 +20,7 @@ export class TeamsPage implements OnInit {
   getList() {
     this.teamService.getAllTeams().subscribe(
       response => {
-        this.teams = response
-        console.log(this.teams);
+        this.teams = response;
       }
     )
   }

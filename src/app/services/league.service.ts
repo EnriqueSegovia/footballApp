@@ -26,4 +26,8 @@ export class LeagueService {
   getLeagueDetails(id) {
      return this.http.get<any>(`${environment.baseApiUrl}leagues?leagueId=${id}`)
   }
+
+  getTeamsInLeague(id) {
+    return this.http.get<any>(`${environment.baseApiUrl}leagues/${id}?_embed=teams`)
+  }
 }

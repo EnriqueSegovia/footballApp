@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>player-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Player Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen *ngIf="data">
+  <ion-card>
+    <ion-card-header>
+      <img src="{{data.playerAvatar}}" />
+      <ion-card-title>{{data.playerName}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Teams:</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col offset-4>
+            <div>Team 1</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

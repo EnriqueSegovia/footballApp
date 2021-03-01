@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from '@app/services/league.service'
 import { ActivatedRoute } from '@angular/router'
+import { LeagueService } from '@app/services/league.service'
 
 @Component({
   selector: 'app-league-details',
@@ -10,10 +10,11 @@ import { ActivatedRoute } from '@angular/router'
 export class LeagueDetailsPage implements OnInit {
   data
   id
+  teams
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private leagueService: LeagueService,
-    private activatedRoute: ActivatedRoute
     ) { }
 
     ngOnInit() {
@@ -23,5 +24,14 @@ export class LeagueDetailsPage implements OnInit {
         this.data = result[0]
       }
       )
+      this.getTeamsInLeague(this.id)
+    }
+
+    getTeamsInLeague(id) {
+      this.teams = ''
+      this.leagueService.getTeamsInLeague(this.id).subscribe(result => {
+        this.teams = result.teams
+        console.log(this.teams)
+      })
     }
 }

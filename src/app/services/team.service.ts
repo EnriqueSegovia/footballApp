@@ -27,4 +27,8 @@ export class TeamService {
     return this.http.get<any>(`${environment.baseApiUrl}teams?id=${id}`)
   }
 
+  getPlayersInTeams(id){
+    return this.http.get<any>(`${environment.baseApiUrl}teams/${id}?_embed=players`)
+  }
+
 }
