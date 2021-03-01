@@ -13,11 +13,13 @@ import { Observable } from 'rxjs';
 export class LeaguesPage implements OnInit {
   leagues
   searchResults
+  teamsSearchResults
   theTeamSearched
   searchedTeamId
   term
   type
   searching = false
+  teamsView = false
 
   constructor(
     private leagueService: LeagueService,
@@ -42,24 +44,20 @@ export class LeaguesPage implements OnInit {
     .subscribe(res => {
       for(let i = 0; i<res.length; i++) {
         this.searchedTeamId = res[i].teamId
-        console.log(this.searchedTeamId);
     }
       setTimeout(() => {
+        this.teamsSearchResults = this.searchTheTeam(this.searchedTeamId)
         this.searchResults = res
-        this.searchTheTeam(this.searchedTeamId)
-        console.log(this.searchResults);
       }, 200)
     })
   }
   searchTheTeam(id) {
+    this.teamsView = true
     this.teamService.getPlayersInTeams(id)
     .subscribe(result => {
       this.theTeamSearched = result[0]
-      console.log(this.theTeamSearched)
     })
   }
-
-
 }
 
 

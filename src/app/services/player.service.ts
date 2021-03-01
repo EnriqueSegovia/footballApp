@@ -30,8 +30,12 @@ export class PlayerService {
     return this.http.get<any>(`${environment.baseApiUrl}players?id=${id}`)
   }
 
-  addPlayer() {
+  addPlayer(player) {
+    return this.http.put<any>(`${environment.baseApiUrl}players`, player)
+  }
 
+  deletePlayer(id) {
+    return this.http.delete<any>(`${environment.baseApiUrl}players?id=${id}`)
   }
 
 }
