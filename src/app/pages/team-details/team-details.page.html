@@ -3,11 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button color="dark" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Team Detail</ion-title>
+    <ion-title>Football App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen *ngIf="data">
+  <div class="ion-text-center">
+    <h2>Team Detail</h2>
+  </div>
   <ion-card>
     <ion-card-header>
       <img src="{{data.teamLogo}}" />

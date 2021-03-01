@@ -3,11 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button color="dark" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Teams</ion-title>
+    <ion-title>Football App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-text-center">
+    <h2>Teams</h2>
+  </div>
   <ion-list *ngFor="let team of teams" [routerLink]="['/', 'team', team.id]">
     <ion-item>
       <ion-avatar slot="start">

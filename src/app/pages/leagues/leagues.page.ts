@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs'
 import { LeagueService } from '@app/services/league.service'
-import { ILeague } from '@app/model/ILeague.interface'
+import { PlayerService } from '@app/services/player.service'
 
 @Component({
   selector: 'app-leagues',
@@ -10,13 +10,15 @@ import { ILeague } from '@app/model/ILeague.interface'
 })
 export class LeaguesPage implements OnInit {
   leagues
+  searchResults
   term: string = ''
 
-  constructor(private leagueService: LeagueService) {
-  }
+  constructor(
+    private leagueService: LeagueService,
+    private playerService: PlayerService
+    ) {}
 
   ngOnInit() {
-
     this.getList()
   }
 
@@ -27,7 +29,8 @@ export class LeaguesPage implements OnInit {
   }
 
   searchChanged(): void  {
-    // this.results =  this.leagueService.searchLeague(this.term)
+     this.searchResults =  this.playerService.searchplayers(this.term)
+     .subscribe(res => console.log(res))
   }
 
 }

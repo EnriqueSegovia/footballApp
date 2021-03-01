@@ -35,7 +35,6 @@ export class PlayerDetailsPage implements OnInit {
   getTeam(team_id) {
     this.teamService.getPlayersInTeams(team_id).subscribe( result => {
       this.team = result[0]
-      console.log(this.team)
     }
     )
   }

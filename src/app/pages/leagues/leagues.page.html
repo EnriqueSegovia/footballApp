@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Leagues List</ion-title>
+    <ion-title>Football App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-text-center">
+    <h2>League List</h2>
+  </div>
   <ion-searchbar [(ngModel)]="term" (ionChange)="searchChanged()">
   </ion-searchbar>
   <ion-list *ngFor="let league of leagues" [routerLink]="['/', 'league', league.id]">
