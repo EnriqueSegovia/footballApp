@@ -14,11 +14,6 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
-  searchplayers(title:string): Observable<any> {
-    this.url = `${environment.baseApiUrl}players?q=${encodeURI(title)}`
-    return this.http.get<any>(this.url).pipe(map(res => this.resp = res))
-  }
-
   getAllPlayers(page) {
     return this.http.get<any>(`${environment.baseApiUrl}players?_page=${page}&_limit=15`)
   }
@@ -29,6 +24,14 @@ export class PlayerService {
 
   getPlayerDetails(id) {
     return this.http.get<any>(`${environment.baseApiUrl}players?id=${id}`)
+  }
+
+  updatePlayer(player, id){
+    return this.http.get<any>(`${environment.baseApiUrl}players?id=${id}`)
+  }
+
+  addPlayer() {
+
   }
 
 }
