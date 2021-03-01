@@ -15,13 +15,14 @@
     </ion-card-header>
     <ion-card-content>
       <h2>Teams:</h2>
-      <ion-grid>
-        <ion-row>
-          <ion-col offset-4>
-            <div>Team 1</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-item *ngIf="team" [routerLink]="['/', 'team', team.id]">
+        <ion-avatar slot="start">
+          <img src="{{team.teamLogo}}">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{team.teamName}}</h2>
+        </ion-label>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 

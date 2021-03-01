@@ -31,7 +31,6 @@ export class LeagueDetailsPage implements OnInit {
       this.teams = ''
       this.leagueService.getTeamsInLeague(this.id).subscribe(result => {
         this.teams = result.teams
-        console.log(this.teams)
       })
     }
 }
